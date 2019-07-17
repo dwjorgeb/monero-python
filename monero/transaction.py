@@ -16,6 +16,7 @@ class Payment(object):
     timestamp = None
     transaction = None
     local_address = None
+    unlock_time = 0
     note = ''
 
     _reprstr = "{} @ {} {:.12f} id={}"
@@ -27,6 +28,7 @@ class Payment(object):
         self.transaction = kwargs.pop('transaction', self.transaction)
         self.local_address = kwargs.pop('local_address', self.local_address)
         self.note = kwargs.pop('note', self.note)
+        self.unlock_time = kwargs.pop('unlock_time', self.unlock_time)
         if len(kwargs):
             raise ValueError("Excessive arguments for {}: {}".format(type(self), kwargs))
 
